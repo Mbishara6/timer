@@ -55,9 +55,18 @@ class _HomeAppState extends State<HomeApp> {
   }
   void addLaps(){
     String lap = "$digitHours:$digitMinute:$digitSecond";
-    setState(() {
-      laps.add(lap);
-    });
+    if(!started== false){
+      setState(() {
+        laps.add(lap);
+      });
+    }else{
+      setState(() {
+        laps.clear();
+
+      });
+
+
+    }
   }
   void start (){
     started = true;
@@ -203,4 +212,5 @@ class _HomeAppState extends State<HomeApp> {
     );
   }
 }
+
 
